@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+/* ===========================================================================
+   Theme colors. We define a small palette as CSS variables so the whole app
+   stays consistent and dark mode is a one-line switch.
+   - --background / --foreground: page and text colors.
+   - --accent: the single accent color (a calm teal/green), used for the
+     active tab, progress bars, and primary buttons.
+   - --muted: secondary text and subtle borders.
+   =========================================================================== */
+:root {
+  --background: #fafafa;
+  --foreground: #18181b;
+  --accent: #0d9488; /* teal-600 */
+  --muted: #71717a; /* zinc-500 */
+  --card: #ffffff;
+}
+
+.dark {
+  --background: #0a0a0b;
+  --foreground: #ededed;
+  --accent: #2dd4bf; /* teal-400, brighter for dark backgrounds */
+  --muted: #a1a1aa;
+  --card: #18181b;
+}
+
+/* Make our CSS variables available as Tailwind color utilities like
+   bg-background, text-foreground, text-accent, etc. */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --color-muted: var(--muted);
+  --color-card: var(--card);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  /* System font stack: fast, no network download, looks native on each OS. */
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+}
